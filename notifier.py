@@ -18,7 +18,8 @@ import config
 bot = Bot(token=config.BOT_TOKEN)
 dp = Dispatcher()
 
-DB_FILE = "market_logs.db"
+# Сохраняем базу данных в постоянную папку /app/data/
+DB_FILE = "/app/data/market_logs.db"
 
 def init_db():
     with sqlite3.connect(DB_FILE) as conn:
