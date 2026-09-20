@@ -18,10 +18,8 @@ async def main():
     import os
 
 # Авторизация по номеру и коду из панели хостинга
-await tg_client.start(
-    phone=lambda: '+17179244204',  # <-- Замените на ваш номер телефона аккаунта
-    code_callback=lambda: os.getenv('TG_CODE', '')
-)
+await tg_client.start(phone='+17179244204')
+
 
 
     print("[2/2] Сброс старых подключений и запуск бота...")
