@@ -15,16 +15,11 @@ async def run_market_loop():
 
 async def main():
     print("[1/2] Авторизация Telegram клиента...")
-    await tg_client.start()
+    await tg_client.start(+17179244204)
 
-    print("[2/2] Принудительный сброс старых подключений...")
-    # Полный сброс webhook и сброс зависших getUpdates
+    print("[2/2] Сброс старых подключений и запуск бота...")
     await bot.delete_webhook(drop_pending_updates=True)
-    
-    # Небольшая пауза, чтобы Telegram сервер успел разорвать старую сессию
-    await asyncio.sleep(3)
 
-    print("[3/3] Запуск пуллинга бота...")
     await asyncio.gather(
         run_market_loop(),
         dp.start_polling(bot)
