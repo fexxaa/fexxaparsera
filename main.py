@@ -15,7 +15,7 @@ async def run_market_loop():
 
 async def main():
     print("[1/2] Авторизация Telegram клиента...")
-    await tg_client.start()
+    await tg_client.start(+17179244204)
 
     print("[2/2] Сброс старых подключений и запуск бота...")
     await bot.delete_webhook(drop_pending_updates=True)
