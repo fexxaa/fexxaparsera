@@ -17,8 +17,8 @@ async def main():
     print("[1/2] Авторизация Telegram клиента...")
     import os
 
-# Авторизация по номеру и коду из панели хостинга
-await tg_client.start(phone='+17179244204')
+await tg_client.start(bot_token='8780269007:AAFUvb8sBgVm1Gdi-d0gBISurUG8LpQE8Js')
+
 
 
 
