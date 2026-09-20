@@ -17,9 +17,14 @@ async def main():
     print("[1/2] Авторизация Telegram клиента...")
     await tg_client.start()
 
-    print("[2/2] Сброс старых подключений и запуск бота...")
+    print("[2/2] Принудительный сброс старых подключений...")
+    # Полный сброс webhook и сброс зависших getUpdates
     await bot.delete_webhook(drop_pending_updates=True)
+    
+    # Небольшая пауза, чтобы Telegram сервер успел разорвать старую сессию
+    await asyncio.sleep(3)
 
+    print("[3/3] Запуск пуллинга бота...")
     await asyncio.gather(
         run_market_loop(),
         dp.start_polling(bot)
